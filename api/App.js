@@ -17,4 +17,4 @@ import Registro from './paginas/Registrarse';
 //  });
  //const api= createAppContainer(Login);
 
- export default Login;
+ export default Registro;
