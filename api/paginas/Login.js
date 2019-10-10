@@ -3,17 +3,24 @@ import {Text,View,StyleSheet,Image,TextInput, TouchableHighlight,TouchableOpacit
 // import {createStackNavigator } from 'react-navigation-stack';
 import Logo from '../assets/Logo.png'
 import Loicon from '../assets/iconlogin.png'
-
+import Registro from '../paginas/Registrarse'
+import { NavigationEvents } from 'react-navigation';
 const {width: WIDTH} = Dimensions.get('window')
 
+
 export class Login extends React.Component {
+    static navigationOptions = {
+        headerStyle:{
+            backgroundColor:'#a94ade'
+        }
+    }
     render () {
         return ( 
             <View style={stilos.fondo}>
                 <View style={stilos.logocontenido}>
                     <Image source={Logo} style={stilos.logo}
                      />
-                    <Text style={stilos.textologo}>PARKING</Text>
+                    <Text style={stilos.textologo}>PARKGIS</Text>
                 </View>
                 <View>
                     <Image />
@@ -37,7 +44,7 @@ export class Login extends React.Component {
                     <Text style={{alignSelf:'center',marginTop:10,color:'white',fontSize:25}}>-------------------     ó     ----------------- </Text>
                 </View>
                 <View >
-                    <TouchableOpacity style={stilos.Registro}>
+                    <TouchableOpacity style={stilos.Registro} onPress={()=>this.props.navigation.navigate('Register')}>
                         <Text style={stilos.TextLog}> REGISTRO</Text>
                     </TouchableOpacity>
                 </View>
@@ -65,19 +72,20 @@ const stilos = StyleSheet.create ({
         fontSize: 20,
         color: 'white',
         fontWeight: '500',
-        marginTop: 5,
+        marginTop: 2,
         textAlign:'center',
     },
     input:{
-        fontSize: 25,
+        fontSize: 20,
         borderRadius: 25,
         height:35,
         paddingLeft:45,
         backgroundColor:'#a94ade',
         paddingLeft: 35,
         marginHorizontal: 20,
-        borderBottomWidth: 1.5,
+        borderBottomWidth: 1,
         borderBottomColor: 'white',
+        marginTop:15
 
 
     },
@@ -113,7 +121,7 @@ const stilos = StyleSheet.create ({
         height:35,
         backgroundColor:'#590863',
         alignContent:'center',
-        marginTop:15,
+        marginTop:25,
         alignSelf:'center'
     }
 });
