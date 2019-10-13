@@ -38,7 +38,8 @@ export class Login extends React.Component {
                     </TextInput>
                 </View>
                 <View> 
-                    <TouchableOpacity style={stilos.Blogin}>
+                    <TouchableOpacity style={stilos.Blogin}
+                    onPress={()=>this.props.navigation.navigate('Ingres')}>
                         <Text style={stilos.TextLog}>INGRESAR</Text>
                     </TouchableOpacity>
                     <Text style={{alignSelf:'center',marginTop:10,color:'white',fontSize:25}}>-------------------     ó     ----------------- </Text>

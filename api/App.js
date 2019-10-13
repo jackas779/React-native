@@ -9,14 +9,25 @@ import Ingreso from './paginas/Ingreso'
 
 
  const Paginas = createStackNavigator ({
-   Home: {screen:Login},
-   Register: {screen:Registro},
-   Contrans: {screen:Contrasena},
-   Ingres : { screen:Ingreso}
+   Home: {screen:Login,  
+     navigationOptions: {
+    header: null 
+  }
+},
+   Register: {screen:Registro, navigationOptions: {
+    header: null 
+  }},
+   Contrans: {screen:Contrasena, navigationOptions: {
+    header: null 
+  }},
+   Ingres : { screen:Ingreso, navigationOptions: {
+    header: null 
+  }}
   },
  
  {
    initialRouteName: 'Home',
+
  });
  const api= createAppContainer(Paginas);
 
