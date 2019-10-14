@@ -4,16 +4,16 @@ import {Text,View,StyleSheet,Button,Image,TouchableOpacity} from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
 import { DrawerNavigatorItems,createDrawerNavigator } from 'react-navigation-drawer';
 import {createAppContainer } from 'react-navigation'
-import Login from './Ingreso';
+import Login from './Login';
 import Registro from './Registrarse';
 import Ingreso from './Ingreso'
 
 class MyHomeScreen extends React.Component {
     static navigationOptions = {
-      drawerLabel: 'Home',
+      drawerLabel: 'Registros',
       drawerIcon: ({ tintColor }) => (
         <Image
-          source={require('../assets/iconlogin.png')}
+          source={require('../assets/portapapeles.png')}
           style={[styles.icon, { tintColor: tintColor }]}
         />
       ),
@@ -22,32 +22,25 @@ class MyHomeScreen extends React.Component {
     render() {
       return (
           <View style={styles.fondo}>
-
-        <TouchableOpacity style={styles.buton}
-          onPress={() => this.props.navigation.navigate('Register')}
-        ><Text style={styles.text}>IR AL REGISTRO</Text></TouchableOpacity>
+            <Image source={require('../assets/ingreso.png')} />
         </View>
       );
     }
   }
   
-  class MyNotificationsScreen extends React.Component {
-    static navigationOptions = {
-      drawerLabel: 'Notifications',
-      drawerIcon: ({ tintColor }) => (
+  class Sesion extends React.Component {
+    static navigationOptions ={
+      drawerLabel:'Cerrar Sesion',
+      drawerIcon:({tintColor})=> (
         <Image
-          source={require('../assets/iconlogin.png')}
-          style={[styles.icon, { tintColor: tintColor }]}
+        source={require('../assets/finalizar-la-sesion.png')}
+        style={[styles.icon,{tintColor:tintColor}]}
         />
       ),
-    };
-  
-    render() {
+    }
+    render () {
       return (
-        <Button
-          onPress={() => this.props.navigation.goBack()}
-          title="Go back home"
-        />
+        null
       );
     }
   }
@@ -74,7 +67,12 @@ class MyHomeScreen extends React.Component {
     },
     fondo:{
         justifyContent:'center',
-        alignContent:'center'
+        alignContent:'center',
+        flex:1
+    },
+    icon:{
+      width:24,
+      height:24
     }
   });
   
@@ -83,8 +81,13 @@ class MyHomeScreen extends React.Component {
         screen: MyHomeScreen,
       },
       Notifications: {
-        screen: MyNotificationsScreen,
+        screen: Ingreso,
       },
+      cerrar:{
+        screen:Login, navigationOptions:{
+          drawerLockMode:'locked-closed'
+        }
+      }
   });
   
   const MyApp = createAppContainer(MyDrawerNavigator);

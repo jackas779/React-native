@@ -10,9 +10,13 @@ const {width: WIDTH} = Dimensions.get('window')
 
 export class Login extends React.Component {
     static navigationOptions = {
-        headerStyle:{
-            backgroundColor:'#a94ade'
-        }
+        drawerLaber:'Cerrar Sesion',
+        drawerIcon: ({tintColor}) => (
+            <Image
+            source={require('../assets/finalizar-la-sesion.png')}
+            style={[stilos.icon,{tintColor:tintColor}]}
+            />
+        ),
     }
     render () {
         return ( 
@@ -23,29 +27,37 @@ export class Login extends React.Component {
                     <Text style={stilos.textologo}>PARKGIS</Text>
                 </View>
                 <View>
-                    <Image />
+                    <View>
+                    <Image source={require('../assets/login.png')} 
+                    style={stilos.iconos} />
                     <TextInput style={stilos.input}
                     placeholder='Usuario'
                     underlineColorAndroid='transparent'
                     >
-
                     </TextInput >
+                    </View>
+                    <View>
+                        <Image source={require('../assets/contrasena.png')} 
+                        style={stilos.iconos} />
                     <TextInput style={stilos.input}
                     placeholder='Paswword'
                     underlineColorAndroid='transparent'
                     secureTextEntry={true}
                     >
                     </TextInput>
+                    </View>
                 </View>
                 <View> 
                     <TouchableOpacity style={stilos.Blogin}
-                    onPress={()=>this.props.navigation.navigate('Ingres')}>
+                    onPress={()=>this.props.navigation.navigate('Contrans')}>
+                   <Image source={require('../assets/iniciar-sesion.png')} style={stilos.iconoingreso} />
                         <Text style={stilos.TextLog}>INGRESAR</Text>
                     </TouchableOpacity>
                     <Text style={{alignSelf:'center',marginTop:10,color:'white',fontSize:25}}>-------------------     ó     ----------------- </Text>
                 </View>
                 <View >
                     <TouchableOpacity style={stilos.Registro} onPress={()=>this.props.navigation.navigate('Register')}>
+                    <Image source={require('../assets/nota.png')} style={stilos.iconoingreso} />
                         <Text style={stilos.TextLog}> REGISTRO</Text>
                     </TouchableOpacity>
                 </View>
@@ -80,10 +92,8 @@ const stilos = StyleSheet.create ({
         fontSize: 20,
         borderRadius: 25,
         height:35,
-        paddingLeft:45,
-        backgroundColor:'#a94ade',
         paddingLeft: 35,
-        marginHorizontal: 20,
+        marginHorizontal: 30,
         borderBottomWidth: 1,
         borderBottomColor: 'white',
         marginTop:15
@@ -124,6 +134,21 @@ const stilos = StyleSheet.create ({
         alignContent:'center',
         marginTop:25,
         alignSelf:'center'
+    },
+    iconos:{
+        width:24,
+        height:24,
+        top:43,
+        left:33
+    },
+    iconoingreso:{
+        position:'absolute',
+        left:80,
+        width:20,
+        height:20,
+        top:7
+
+
     }
 });
 module.exports = Login;

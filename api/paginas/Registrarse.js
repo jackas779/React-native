@@ -38,23 +38,38 @@ export class Registro extends React.Component {
                      </Text>
                      </View>
                      <View>
+                     <Image sourcre={require('../assets/iconlogin.png')} 
+                           // style={stilos.iconos} 
+                             />
+                         <View>
                          <TextInput style={stilos.input}
                          placeholder='Email'
                          />
+                         </View>
+                         <View>
+                             <Image source={require('../assets/login.png')} 
+                             style={stilos.iconos}/>
                          <TextInput style={stilos.input}
                          placeholder='Usuario'
-                         />
+                         /></View>
+                         <View>
+                             <Image source={require('../assets/contrasena.png')}
+                             style={stilos.iconos} />
                          <TextInput style={stilos.input}
                          secureTextEntry={true}
                          placeholder='Contraseña'
-                         />
+                         /></View>
+                         <View>
+                         <Image source={require('../assets/contrasena.png')} 
+                         style={stilos.iconos}/>
                          <TextInput style={stilos.input}
                          secureTextEntry={true}
                          placeholder='Repita Contraseña'
-                         />
+                         /></View>
                      </View>
                      <View>
                          <TouchableOpacity style={stilos.Registro}  onPress={this.alertas}>
+                         <Image source={require('../assets/nota.png')} style={stilos.iconRegis} />
                              <Text style={stilos.text}>REGISTRARSE </Text>
                          </TouchableOpacity>
                      </View>
@@ -74,14 +89,14 @@ const stilos = StyleSheet.create ({
         alignSelf:'center'
     },
     input:{
-        width: WIDTH -60,
         fontSize:20,
         borderBottomWidth: 1,
         borderBottomColor: 'white',
-        paddingLeft: 25,
-        marginTop: 30,
+        paddingLeft: 35,
+        marginTop: 15,
         height:35,
-        marginHorizontal:20
+        marginHorizontal:20,
+        borderRadius:25
 
     },
     Registro: {
@@ -120,6 +135,21 @@ const stilos = StyleSheet.create ({
         alignSelf:'center'
 
     },
+    iconos:{
+        width:24,
+        height:24,
+        left:25,
+        top:43,
+        position:'relative'
+
+    },
+    iconRegis:{
+        width:20,
+        height:20,
+        left:55,
+        position:'absolute',
+        top:7
+    }
 
 })
 module.exports = Registro;
